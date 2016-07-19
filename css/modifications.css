@@ -1,0 +1,173 @@
+
+.modif-nav {
+	display: block;
+	/*min-width: 900px;*/
+	width: 400px;
+	background: red;/*#039be5*/
+	background-color: rgba(255, 0, 0, .7);
+	transition: all .8s;
+	position: fixed;
+	/*left: 0;*/
+	right: 0;
+	bottom: 0;
+	height: 400px;
+	padding: 30px;
+	z-index: 9999999;
+}
+
+.modif-nav-a {
+	font-size: 1em;
+	display: block;
+	background: red;
+	position: fixed;
+	padding: 10px;
+	margin: 0;
+	right: 0;
+	top: 0;
+	z-index: 9999;
+	transition: all .8s;
+	border: 2px solid red;
+}
+
+.modif-nav-a:hover {
+	color: red;
+	background: white;
+	border: 2px solid red;
+	transition: all .8s;
+}
+
+.modif-nav:hover{
+	background-color: rgba(255, 0, 0, 1);
+	transition: all .8s;
+
+}
+.modif-nav li {
+	display: block;
+	float: none;
+	width: 50%;
+}
+
+.modif-nav input {
+	width: 100%;
+}
+.modif-nav span {
+	width: 50%;
+	left: 300px;
+	top: 10px;
+}
+
+.group:after {
+	display: table;
+	clear: both;
+	content: "";
+}
+
+.logout {
+	color: red;
+}
+
+.modif-button {
+	padding: 10px;
+	width: 100px;
+	border: none;
+	background: red;
+	color: white;
+}
+
+/*-----------------------------------------
+[[HEADER]]*/
+.modif-button-2 {
+	display: block;
+	float: left;
+	padding: 20px;
+	top:0;
+	left:0;
+	border: none;
+	background: #B22222;
+}
+.modif-button-2:hover {
+	color: red;
+	background: white;
+}
+
+/*-----------------------------------------
+[[ZOOPASS]]*/
+.flex-out {
+	display: flex;
+	-webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+
+}
+.flex-in {
+	display: flex;
+	flex-direction: column;
+	-webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+	width: 40%;
+}
+
+.modif-button-zoopass {
+	margin-top: 10px;
+	padding: 10px;
+	width: 100px;
+	border: none;
+	background: red;
+	color: white;
+
+}
+
+/*-----------------------------------------
+[[HORAIRES]]*/
+.formHoraires {
+	width: 20%;
+	margin: 20px;
+}
+
+.displayHoraires {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.selectHoraires {
+	/*width: 100%;*/
+}
+
+/*-----------------------------------------
+[[FOOTER]]*/
+.textareaFooter {
+	border: none;
+	font-style: italic;
+	height: 50px;
+	margin-top: 40px;
+	background: white;
+	color: black;
+	height: 100px;
+}
+
+.formFooter input {
+	margin: 20px;
+	width: 20%;
+}
+
+.formFooter input[name="sortie"] {
+	width: 100%;
+
+}
+
+
+
+/*+++++++*/
+.hidden {
+	display: none;
+}
+
+
+
