@@ -65,20 +65,6 @@ if($_GET['lang']=='en'):
    exit;
    endif;
 
-   /***** Update horaires
-   */
-   if(isset($_POST['updateHoraires'])):
-   $upHoraires = sprintf("UPDATE zoo_horaires_en SET id_heure=%s, id_saison=%s WHERE id_horaires=%s",
-      $_POST['id_heures'],
-      $_POST['id_saison'],
-      $_POST['id_horaires']
-      );
-   $db_connect->query($upHoraires);
-   echo $db_connect->error;
-   //echo $upHoraires;
-   header("location:index.php?lang=en");
-   exit;
-   endif;
 
    /***** Update horaires [[EN]]
    */
@@ -167,8 +153,11 @@ else:
       );
    $db_connect->query($upBanners);
    echo $db_connect->error;
+    // echo $upBanners;
 
-   header("location:index.php");
+   $Back = $_SERVER["HTTP_REFERER"];
+   header("location:".$Back);
+
    exit;
    endif;
 
@@ -221,20 +210,6 @@ else:
    exit;
    endif;
 
-   /***** Update horaires [[FR]]
-   */
-   if(isset($_POST['updateHoraires'])):
-   $upHoraires = sprintf("UPDATE zoo_horaires SET id_heure=%s, id_saison=%s WHERE id_horaires=%s",
-      $_POST['id_heures'],
-      $_POST['id_saison'],
-      $_POST['id_horaires']
-      );
-   $db_connect->query($upHoraires);
-   echo $db_connect->error;
-   //echo $upHoraires;
-   header("location:index.php");
-   exit;
-   endif;
 
    /*---------------------------------------------*/
    /***** Update sous-catégories [[FOOTER_FR]] 

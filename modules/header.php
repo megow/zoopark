@@ -63,7 +63,7 @@ endif;//end get lang
   </nav>
   <nav class="white nav-princip" role="navigation">
     <div class="nav-wrapper container">
-      <a id="logo-container" href="#" class="brand-logo"><h1 class="brand">ZooPark/<em>adventure</em></h1></a>
+      <a id="logo-container" href="index.php" class="brand-logo"><h1 class="brand">ZooPark/<em>adventure</em></h1></a>
       <ul class="right hide-on-med-and-down">
       
       <?php if(isset($_SESSION['zoo_admins'])): ?>
