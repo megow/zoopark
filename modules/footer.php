@@ -1,48 +1,95 @@
 <?php
+if($_GET['lang']=='en'):
+    /***** Afficher cat/souscat [[SPECIALITES_EN]]
+    */
+    $catSpecialites = "SELECT * FROM view_souscat_cat_en
+    WHERE id_mod_index_cat_footer = 1";
 
-/***** Afficher cat/souscat [[SPECIALITES]]
-*/
-$catSpecialites = "SELECT * FROM view_souscat_cat
-WHERE id_mod_index_cat_footer = 1";
+    $catSpecialites_request = $db_connect->query($catSpecialites);
+    echo $db_connect->error;
+    while($catSpec = $catSpecialites_request->fetch_object()):
+      $allRowsCatSpec[] = $catSpec;
+    endwhile;
 
-$catSpecialites_request = $db_connect->query($catSpecialites);
-echo $db_connect->error;
-while($catSpec = $catSpecialites_request->fetch_object()):
-  $allRowsCatSpec[] = $catSpec;
-endwhile;
+    /***** Afficher cat/souscat [[ACTIVITES_EN]]
+    */
+    $catActivites = "SELECT * FROM view_souscat_cat_en
+    WHERE id_mod_index_cat_footer = 2";
 
-/***** Afficher cat/souscat [[ACTIVITES]]
-*/
-$catActivites = "SELECT * FROM view_souscat_cat
-WHERE id_mod_index_cat_footer = 2";
+    $catActivites_request = $db_connect->query($catActivites);
+    echo $db_connect->error;
+    while($catAct = $catActivites_request->fetch_object()):
+      $allRowsCatAct[] = $catAct;
+    endwhile;
 
-$catActivites_request = $db_connect->query($catActivites);
-echo $db_connect->error;
-while($catAct = $catActivites_request->fetch_object()):
-  $allRowsCatAct[] = $catAct;
-endwhile;
+    /***** Afficher google map [[EN]]
+    */
+    $map = "SELECT * FROM mod_index_map_footers_en";
 
-/***** Afficher google map
-*/
-$map = "SELECT * FROM mod_index_map_footers";
-
-$map_request = $db_connect->query($map);
-echo $db_connect->error;
-while($mapG = $map_request->fetch_object()):
-  $allRowsMap[] = $mapG;
-endwhile;
+    $map_request = $db_connect->query($map);
+    echo $db_connect->error;
+    while($mapG = $map_request->fetch_object()):
+      $allRowsMap[] = $mapG;
+    endwhile;
 
 
-//-------------------------------------------------------------------------
-/***** Afficher footer
-*/
-$footer = "SELECT * FROM mod_index_footers";
+    //-------------------------------------------------------------------------
+    /***** Afficher footer [[EN]]
+    */
+    $footer = "SELECT * FROM mod_index_footers_en";
 
-$footer_request = $db_connect->query($footer);
-echo $db_connect->error;
-while($foot = $footer_request->fetch_object()):
-  $allRowsFooter[] = $foot;
-endwhile;
+    $footer_request = $db_connect->query($footer);
+    echo $db_connect->error;
+    while($foot = $footer_request->fetch_object()):
+      $allRowsFooter[] = $foot;
+    endwhile;
+
+else:
+    /***** Afficher cat/souscat [[SPECIALITES_FR]]
+    */
+    $catSpecialites = "SELECT * FROM view_souscat_cat
+    WHERE id_mod_index_cat_footer = 1";
+
+    $catSpecialites_request = $db_connect->query($catSpecialites);
+    echo $db_connect->error;
+    while($catSpec = $catSpecialites_request->fetch_object()):
+      $allRowsCatSpec[] = $catSpec;
+    endwhile;
+
+    /***** Afficher cat/souscat [[ACTIVITES_FR]]
+    */
+    $catActivites = "SELECT * FROM view_souscat_cat
+    WHERE id_mod_index_cat_footer = 2";
+
+    $catActivites_request = $db_connect->query($catActivites);
+    echo $db_connect->error;
+    while($catAct = $catActivites_request->fetch_object()):
+      $allRowsCatAct[] = $catAct;
+    endwhile;
+
+    /***** Afficher google map [[FR]]
+    */
+    $map = "SELECT * FROM mod_index_map_footers";
+
+    $map_request = $db_connect->query($map);
+    echo $db_connect->error;
+    while($mapG = $map_request->fetch_object()):
+      $allRowsMap[] = $mapG;
+    endwhile;
+
+
+    //-------------------------------------------------------------------------
+    /***** Afficher footer [[FR]]
+    */
+    $footer = "SELECT * FROM mod_index_footers";
+
+    $footer_request = $db_connect->query($footer);
+    echo $db_connect->error;
+    while($foot = $footer_request->fetch_object()):
+      $allRowsFooter[] = $foot;
+    endwhile;
+
+endif;//end get lang
 
 ?>
 
@@ -176,10 +223,10 @@ endwhile;
     <div class="section version grey darken-3">
       <div class="row">
         <div class="col s6 center">
-          <a class="waves-effect text waves-orange btn-flat">Français</a>
+          <a class="waves-effect text waves-orange btn-flat" href="?lang=fr">Français</a>
         </div>
         <div class="col s6 center">
-          <a class="waves-effect waves-orange btn-flat">English</a>
+          <a class="waves-effect waves-orange btn-flat" href="?lang=en">English</a>
         </div>
       </div>
     </div>

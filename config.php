@@ -13,9 +13,29 @@
 	if($db_connect->connect_errno) :
 		echo "ERREUR ".$db_connect->error;
 		exit;
-		else: $db_connect->set_charset("utf8");//utf8
+		else: $db_connect->set_charset("utf8");
 	endif;
 
 	session_start();
+
+	/**/
+	define('TABLE_PREFIX','ost_');
+	switch(isset($_GET['lang'])) {
+		case 'fr':
+			$_SESSION['lang']='fr';
+			break;
+
+			case 'en':
+			$_SESSION['lang']='en';
+			break;
+		
+		default:
+			$_SESSION['lang']='fr';
+			$_GET['lang']='fr';
+			
+	}
+	define('LANG',$_SESSION['lang']);
+
+
 
 ?>

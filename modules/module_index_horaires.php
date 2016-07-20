@@ -1,63 +1,127 @@
-<?php 
-/***** Afficher toutes les saisons
-*/
-$saisons = "SELECT * FROM zoo_saisons";
+<?php
+if($_GET['lang']=='en'):
+    /***** Afficher toutes les saisons [[EN]]
+    */
+    $saisons = "SELECT * FROM zoo_saisons_en";
 
-$saisons_request = $db_connect->query($saisons);
-echo $db_connect->error;
-while($sais = $saisons_request->fetch_object()):
-  $allRowsSais[] = $sais;
-endwhile;
+    $saisons_request = $db_connect->query($saisons);
+    echo $db_connect->error;
+    while($sais = $saisons_request->fetch_object()):
+      $allRowsSais[] = $sais;
+    endwhile;
 
-/*****Afficher jours et heures [[ETE]]
-*/
-$planningEte = "SELECT * FROM view_horaires_ete";
+    /*****Afficher jours et heures [[ETE_EN]]
+    */
+    $planningEte = "SELECT * FROM view_horaires_ete_en";
 
-$planningEte_request = $db_connect->query($planningEte);
-echo $db_connect->error;
-while($planE = $planningEte_request->fetch_object()):
-  $allRowsEte[] = $planE;
-endwhile;
+    $planningEte_request = $db_connect->query($planningEte);
+    echo $db_connect->error;
+    while($planE = $planningEte_request->fetch_object()):
+      $allRowsEte[] = $planE;
+    endwhile;
 
-/*****Afficher jours et heures [[AUTOMNE]]
-*/
-$planningAutomne = "SELECT * FROM view_horaires_automne";
+    /*****Afficher jours et heures [[AUTOMNE_EN]]
+    */
+    $planningAutomne = "SELECT * FROM view_horaires_automne_en";
 
-$planningAutomne_request = $db_connect->query($planningAutomne);
-echo $db_connect->error;
-while($planA = $planningAutomne_request->fetch_object()):
-  $allRowsAutomne[] = $planA;
-endwhile;
+    $planningAutomne_request = $db_connect->query($planningAutomne);
+    echo $db_connect->error;
+    while($planA = $planningAutomne_request->fetch_object()):
+      $allRowsAutomne[] = $planA;
+    endwhile;
 
-/*****Afficher jours et heures [[HIVER]]
-*/
-$planningHiver = "SELECT * FROM view_horaires_hiver";
+    /*****Afficher jours et heures [[HIVER_EN]]
+    */
+    $planningHiver = "SELECT * FROM view_horaires_hiver_en";
 
-$planningHiver_request = $db_connect->query($planningHiver);
-echo $db_connect->error;
-while($planH = $planningHiver_request->fetch_object()):
-  $allRowsHiver[] = $planH;
-endwhile;
+    $planningHiver_request = $db_connect->query($planningHiver);
+    echo $db_connect->error;
+    while($planH = $planningHiver_request->fetch_object()):
+      $allRowsHiver[] = $planH;
+    endwhile;
 
-/*****Afficher heures
-*/
-$heures = "SELECT * FROM zoo_heures";
+    /*****Afficher heures [[EN]]
+    */
+    $heures = "SELECT * FROM zoo_heures_en";
 
-$heures_request = $db_connect->query($heures);
-echo $db_connect->error;
-while($heu = $heures_request->fetch_object()):
-  $allRowsHeures[] = $heu;
-endwhile;
+    $heures_request = $db_connect->query($heures);
+    echo $db_connect->error;
+    while($heu = $heures_request->fetch_object()):
+      $allRowsHeures[] = $heu;
+    endwhile;
 
-/*****Afficher horaires
-*/
-$horaires = "SELECT * FROM zoo_horaires";
+    /*****Afficher horaires [[EN]]
+    */
+    $horaires = "SELECT * FROM zoo_horaires_en";
 
-$horaires_request = $db_connect->query($horaires);
-echo $db_connect->error;
-while($hor = $horaires_request->fetch_object()):
-  $allRowsHoraires[] = $hor;
-endwhile;
+    $horaires_request = $db_connect->query($horaires);
+    echo $db_connect->error;
+    while($hor = $horaires_request->fetch_object()):
+      $allRowsHoraires[] = $hor;
+    endwhile;
+
+else: 
+    /***** Afficher toutes les saisons [[FR]]
+    */
+    $saisons = "SELECT * FROM zoo_saisons";
+
+    $saisons_request = $db_connect->query($saisons);
+    echo $db_connect->error;
+    while($sais = $saisons_request->fetch_object()):
+      $allRowsSais[] = $sais;
+    endwhile;
+
+    /*****Afficher jours et heures [[ETE_FR]]
+    */
+    $planningEte = "SELECT * FROM view_horaires_ete";
+
+    $planningEte_request = $db_connect->query($planningEte);
+    echo $db_connect->error;
+    while($planE = $planningEte_request->fetch_object()):
+      $allRowsEte[] = $planE;
+    endwhile;
+
+    /*****Afficher jours et heures [[AUTOMNE_FR]]
+    */
+    $planningAutomne = "SELECT * FROM view_horaires_automne";
+
+    $planningAutomne_request = $db_connect->query($planningAutomne);
+    echo $db_connect->error;
+    while($planA = $planningAutomne_request->fetch_object()):
+      $allRowsAutomne[] = $planA;
+    endwhile;
+
+    /*****Afficher jours et heures [[HIVER_FR]]
+    */
+    $planningHiver = "SELECT * FROM view_horaires_hiver";
+
+    $planningHiver_request = $db_connect->query($planningHiver);
+    echo $db_connect->error;
+    while($planH = $planningHiver_request->fetch_object()):
+      $allRowsHiver[] = $planH;
+    endwhile;
+
+    /*****Afficher heures [[FR]]
+    */
+    $heures = "SELECT * FROM zoo_heures";
+
+    $heures_request = $db_connect->query($heures);
+    echo $db_connect->error;
+    while($heu = $heures_request->fetch_object()):
+      $allRowsHeures[] = $heu;
+    endwhile;
+
+    /*****Afficher horaires [[FR]]
+    */
+    $horaires = "SELECT * FROM zoo_horaires";
+
+    $horaires_request = $db_connect->query($horaires);
+    echo $db_connect->error;
+    while($hor = $horaires_request->fetch_object()):
+      $allRowsHoraires[] = $hor;
+    endwhile;
+
+endif;//end get lang
 
 ?>
 

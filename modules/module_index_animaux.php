@@ -1,24 +1,47 @@
 <?php
-/***** Afficher animaux
-*/
-$animaux = "SELECT * FROM view_animaux_flaticons";
+if($_GET['lang']=='en'):
+    /***** Afficher animaux [[EN]]
+    */
+    $animaux = "SELECT * FROM view_animaux_flaticons_en";
 
-$animaux_request = $db_connect->query($animaux);
-echo $db_connect->error;
-while($anim = $animaux_request->fetch_object()):
-  $allRowsAnimaux[] = $anim;
-endwhile;
+    $animaux_request = $db_connect->query($animaux);
+    echo $db_connect->error;
+    while($anim = $animaux_request->fetch_object()):
+      $allRowsAnimaux[] = $anim;
+    endwhile;
 
+    /***** Afficher flaticon [[EN]]
+    */
+    $flaticon = "SELECT * FROM mod_index_animaux_flaticons_en";
 
-/***** Afficher flaticon
-*/
-$flaticon = "SELECT * FROM mod_index_animaux_flaticons";
+    $flaticon_request = $db_connect->query($flaticon);
+    echo $db_connect->error;
+    while($flat = $flaticon_request->fetch_object()):
+      $allRowsFlaticon[] = $flat;
+    endwhile;
 
-$flaticon_request = $db_connect->query($flaticon);
-echo $db_connect->error;
-while($flat = $flaticon_request->fetch_object()):
-  $allRowsFlaticon[] = $flat;
-endwhile;
+else:
+    /***** Afficher animaux [[FR]]
+    */
+    $animaux = "SELECT * FROM view_animaux_flaticons";
+
+    $animaux_request = $db_connect->query($animaux);
+    echo $db_connect->error;
+    while($anim = $animaux_request->fetch_object()):
+      $allRowsAnimaux[] = $anim;
+    endwhile;
+
+    /***** Afficher flaticon [[FR]]
+    */
+    $flaticon = "SELECT * FROM mod_index_animaux_flaticons";
+
+    $flaticon_request = $db_connect->query($flaticon);
+    echo $db_connect->error;
+    while($flat = $flaticon_request->fetch_object()):
+      $allRowsFlaticon[] = $flat;
+    endwhile;
+
+endif;//end get lang
 
 ?>
 

@@ -1,6 +1,10 @@
+.bodyBorder {
+	border: 5px solid red;
+}
 
 .modif-nav {
-	display: block;
+	display: flex;
+	flex-direction: column;
 	/*min-width: 900px;*/
 	width: 400px;
 	background: red;/*#039be5*/
@@ -11,7 +15,7 @@
 	right: 0;
 	bottom: 0;
 	height: 400px;
-	padding: 30px;
+	padding: 20px;
 	z-index: 9999999;
 }
 
@@ -44,16 +48,14 @@
 .modif-nav li {
 	display: block;
 	float: none;
-	width: 50%;
+	width: 100%;
+	margin: 10px 0;
+	height: 60px;
 }
 
-.modif-nav input {
-	width: 100%;
-}
+
 .modif-nav span {
-	width: 50%;
-	left: 300px;
-	top: 10px;
+	width: 30%;
 }
 
 .group:after {
@@ -76,18 +78,27 @@
 
 /*-----------------------------------------
 [[HEADER]]*/
+.flexMenu {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+}
+
 .modif-button-2 {
 	display: block;
-	float: left;
-	padding: 20px;
-	top:0;
-	left:0;
+	padding: 10px;
+	font-size: .8em;
 	border: none;
 	background: #B22222;
 }
 .modif-button-2:hover {
 	color: red;
 	background: white;
+}
+
+.flexMenu .inputMenu {
+	width: 30%;
+	margin: 10px;
 }
 
 /*-----------------------------------------
@@ -161,6 +172,7 @@
 	width: 100%;
 
 }
+
 
 
 

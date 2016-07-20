@@ -2,34 +2,32 @@
 <?php require("function.php"); ?>
 <?php include('update.php'); ?>
 <?php
-/***** Update banners
-*/
-if(isset($_POST['updateBanners'])):
- $upBanners = sprintf("UPDATE mod_index_banners SET titre = '%s', src='%s', alt='%s' WHERE id_mod_index_banners =%s",
-   addslashes($_POST['titre']),
-   $_POST['src'],
-   $_POST['alt'],
-   $_POST['id_mod_index_banners']
-   );
-$db_connect->query($upBanners);
-echo $db_connect->error;
+if($_GET['lang']=='en'):
+    /***** Afficher banners [[EN]]
+    */
+    $banners = "SELECT * FROM mod_index_banners_en";
 
-header("location:index.php");
-exit;
-endif;
+    $banners_request = $db_connect->query($banners);
+    echo $db_connect->error;
+    while($bans = $banners_request->fetch_object()):
+      $allRowsBanners[] = $bans;
+    endwhile;
 
-/***** Afficher banners
-*/
-$banners = "SELECT * FROM mod_index_banners";
+else:
+    /***** Afficher banners [[FR]]
+    */
+    $banners = "SELECT * FROM mod_index_banners";
 
-$banners_request = $db_connect->query($banners);
-echo $db_connect->error;
-while($bans = $banners_request->fetch_object()):
-  $allRowsBanners[] = $bans;
-endwhile;
+    $banners_request = $db_connect->query($banners);
+    echo $db_connect->error;
+    while($bans = $banners_request->fetch_object()):
+      $allRowsBanners[] = $bans;
+    endwhile;
+
+endif;//end get lang
 
 ?>
-<?php include("header.php"); ?>
+<?php include("modules/header.php"); ?>
 
   <!-- BANNER 1 -->
   <div id="index-banner" class="parallax-container">
@@ -67,8 +65,8 @@ endwhile;
   <!-- FIN BANNER 1-->
 
 
-  <?php include("module_index_animaux.php"); ?>
-  <?php include("module_index_zoopass.php"); ?>
+  <?php include("modules/module_index_animaux.php"); ?>
+  <?php include("modules/module_index_zoopass.php"); ?>
 
 
   <!-- BANNER 2 -->
@@ -109,7 +107,7 @@ endwhile;
   <!-- FIN BANNER 2 -->
 
 
-  <?php include('module_index_horaires.php') ?>
+  <?php include('modules/module_index_horaires.php') ?>
 
 
   <!-- BANNER 3 -->
@@ -142,4 +140,4 @@ endwhile;
   <!-- FIN BANNER 3 -->
 
 
-  <?php include("footer.php"); ?>
+  <?php include("modules/footer.php"); ?>

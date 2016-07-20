@@ -1,24 +1,48 @@
 <?php
-/***** Afficher zoopass
-*/
-$zoopass = "SELECT * FROM view_mod_zoopass";
+if($_GET['lang']=='en'):
+  /***** Afficher zoopass [[EN]]
+  */
+  $zoopass = "SELECT * FROM view_mod_zoopass_en";
 
-$zoopass_request = $db_connect->query($zoopass);
-echo $db_connect->error;
-while($zoop = $zoopass_request->fetch_object()):
-  $allRowsZoopass[] = $zoop;
-endwhile;
+  $zoopass_request = $db_connect->query($zoopass);
+  echo $db_connect->error;
+  while($zoop = $zoopass_request->fetch_object()):
+    $allRowsZoopass[] = $zoop;
+  endwhile;
 
-/***** Afficher prix
-*/
-$prix = "SELECT * FROM mod_index_pass_2";
+  /***** Afficher prix [[EN]]
+  */
+  $prix = "SELECT * FROM mod_index_pass_2_en";
 
-$prix_request = $db_connect->query($prix);
-echo $db_connect->error;
-while($prix = $prix_request->fetch_object()):
-  $allRowsPrix[] = $prix;
-endwhile;  
- ?>  
+  $prix_request = $db_connect->query($prix);
+  echo $db_connect->error;
+  while($prix = $prix_request->fetch_object()):
+    $allRowsPrix[] = $prix;
+  endwhile; 
+
+else:
+  /***** Afficher zoopass [[FR]]
+  */
+  $zoopass = "SELECT * FROM view_mod_zoopass";
+
+  $zoopass_request = $db_connect->query($zoopass);
+  echo $db_connect->error;
+  while($zoop = $zoopass_request->fetch_object()):
+    $allRowsZoopass[] = $zoop;
+  endwhile;
+
+  /***** Afficher prix [[FR]]
+  */
+  $prix = "SELECT * FROM mod_index_pass_2";
+
+  $prix_request = $db_connect->query($prix);
+  echo $db_connect->error;
+  while($prix = $prix_request->fetch_object()):
+    $allRowsPrix[] = $prix;
+  endwhile; 
+
+endif;//end get lang
+?>  
 
   <!-- Call-->
   <div class="call orange lighten-1">

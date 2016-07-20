@@ -1,13 +1,27 @@
 <?php
-/***** Afficher menu
-*/
-$menu = "SELECT * FROM mod_index_menus";
+if($_GET['lang']=='en'):
+    /***** Afficher menu [[EN]]
+    */
+    $menu = "SELECT * FROM mod_index_menus_en";
 
-$menu_request = $db_connect->query($menu);
-echo $db_connect->error;
-while($menuIndex = $menu_request->fetch_object()):
-  $allRowsMenu[] = $menuIndex;
-endwhile;
+    $menu_request = $db_connect->query($menu);
+    echo $db_connect->error;
+    while($menuIndex = $menu_request->fetch_object()):
+      $allRowsMenu[] = $menuIndex;
+    endwhile;
+
+else:
+    /***** Afficher menu [[FR]]
+    */
+    $menu = "SELECT * FROM mod_index_menus";
+
+    $menu_request = $db_connect->query($menu);
+    echo $db_connect->error;
+    while($menuIndex = $menu_request->fetch_object()):
+      $allRowsMenu[] = $menuIndex;
+    endwhile;
+
+endif;//end get lang
 ?>
 
 <!DOCTYPE html>
@@ -20,7 +34,11 @@ endwhile;
   <link href="css/styles.min.css" type="text/css" rel="stylesheet" media="screen,projection"/>
   <link rel="stylesheet" href="css/modifications.css">
 </head>
+<?php if(isset($_SESSION['zoo_admins'])): ?>
+<body class="bodyBorder">
+<?php else: ?>
 <body>
+<?php endif; ?>
     <section class="LOGIN">
         <?php if(isset($_SESSION['zoo_admins'])): ?>
         <section class="login">
@@ -52,16 +70,20 @@ endwhile;
          
          <div id="updateMenu">
             <h3 class="modif-nav-a" href="">modifier menu</h3>
-            <form class="modif-nav group hidden" action="" method="post">
+            <div class="modif-nav group hidden">
             <?php for($i=0; $i<count($allRowsMenu); $i++): ?>
-            <li><input class="UPDATE" type="text" name="nav" value="<?php echo $allRowsMenu[$i]->nav; ?>"> <span><input class="UPDATE" type="text" name="sousnav" value="<?php echo $allRowsMenu[$i]->sousnav; ?>"></span></li>
-            <input type="hidden" name="id_mod_index_menus">
-
+            <form class="flexMenu" action="" method="post">
+              <input class="inputMenu" type="text" name="nav" value="<?php echo $allRowsMenu[$i]->nav; ?>">
+              <input class="inputMenu" type="text" name="sousnav" value="<?php echo $allRowsMenu[$i]->sousnav; ?>">
+              
+              <input type="hidden" name="id_mod_index_menus" value="<?php echo $allRowsMenu[$i]->id_mod_index_menus; ?>">
+              <input type="hidden" name="updateMenu" value="yes">
+              <input class="modif-button-2" type="submit" value="modifier">
+            </form>
             <?php endfor; ?>
-            <li><input class="modif-button-2" type="submit" value="modifier"></li>
-            <input type="hidden" name="updateMenu">
+            </div>
             
-          </form>
+          
         </div>
       <?php else: ?>
 
