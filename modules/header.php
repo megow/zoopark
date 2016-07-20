@@ -1,5 +1,5 @@
 <?php
-if($_GET['lang']=='en'):
+if($_SESSION['lang']=='en'):
     /***** Afficher menu [[EN]]
     */
     $menu = "SELECT * FROM mod_index_menus_en";

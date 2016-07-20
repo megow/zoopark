@@ -1,5 +1,5 @@
 <?php
-if($_GET['lang']=='en'):
+if($_SESSION['lang']=='en'):
     /***** Afficher toutes les saisons [[EN]]
     */
     $saisons = "SELECT * FROM zoo_saisons_en";

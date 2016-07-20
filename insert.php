@@ -1,5 +1,5 @@
 <?php 
-if($_GET['lang']=='en'):
+if($_SESSION['lang']=='en'):
   /***** Insérer contact [[EN]]
   */
   if(isset($_POST['newContact'])) :

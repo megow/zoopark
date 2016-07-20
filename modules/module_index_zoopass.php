@@ -1,5 +1,5 @@
 <?php
-if($_GET['lang']=='en'):
+if($_SESSION['lang']=='en'):
   /***** Afficher zoopass [[EN]]
   */
   $zoopass = "SELECT * FROM view_mod_zoopass_en";

@@ -1,5 +1,5 @@
 <?php
-if($_GET['lang']=='en'):
+if($_SESSION['lang']=='en'):
    /***** Update menu [[EN]]
    */
    if(isset($_POST['updateMenu'])):
@@ -27,7 +27,9 @@ if($_GET['lang']=='en'):
    $db_connect->query($upBanners);
    echo $db_connect->error;
 
-   header("location:index.php?lang=en");
+   $Back = $_SERVER["HTTP_REFERER"];
+   header("location:".$Back);
+   
    exit;
    endif;
 

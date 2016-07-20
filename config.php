@@ -20,22 +20,42 @@
 
 	/**/
 	define('TABLE_PREFIX','ost_');
-	switch(isset($_GET['lang'])) {
-		case 'fr':
-			$_SESSION['lang']='fr';
-			break;
 
-			case 'en':
-			$_SESSION['lang']='en';
-			break;
-		
-		default:
-			$_SESSION['lang']='fr';
-			$_GET['lang']='fr';
+	if(isset($_GET['lang'])) :
+
+
+		switch($_GET['lang']) {
+			case 'fr':
+				$_SESSION['lang']='fr';
+				$lang ='fr';
+				break;
+
+				case 'en':
+				//echo "test";
+				$_SESSION['lang']='en';
+				$lang ='en';
+				break;
 			
-	}
-	define('LANG',$_SESSION['lang']);
+				// default:
+				// $_SESSION['lang']='fr';
+				// $_GET['lang']='fr';
+				// $lang ='fr';
+				// break;	
+		}
 
+		define('LANG',$_SESSION['lang']);
+		header("location:".$_SERVER['HTTP_REFERER']);
+		exit;
+	else : 
+		if(!$_SESSION['lang']) :
+		$_SESSION['lang']='fr';
+		$_GET['lang']='fr';
+		$lang ='fr';
+		header("location:".$_SERVER['HTTP_REFERER']);
+		exit;
+		endif;
+
+	endif;
 
 
 ?>

@@ -4,7 +4,7 @@
 <?php include('insert.php'); ?>
 <?php
 
-if($_GET['lang']=='en'):
+if($_SESSION['lang']=='en'):
   /***** Afficher banners [[EN]]
   */
   $banners = "SELECT * FROM mod_index_banners_en";

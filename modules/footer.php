@@ -1,5 +1,5 @@
 <?php
-if($_GET['lang']=='en'):
+if($_SESSION['lang']=='en'):
     /***** Afficher cat/souscat [[SPECIALITES_EN]]
     */
     $catSpecialites = "SELECT * FROM view_souscat_cat_en
@@ -244,3 +244,5 @@ endif;//end get lang
 
 </body>
 </html>
+
+<?php //myPrint_r($_SESSION) ?>

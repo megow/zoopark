@@ -1,5 +1,5 @@
 <?php
-if($_GET['lang']=='en'):
+if($_SESSION['lang']=='en'):
     /***** Afficher animaux [[EN]]
     */
     $animaux = "SELECT * FROM view_animaux_flaticons_en";
