@@ -2,6 +2,7 @@
 ## Détails
 - auteur : meg
 - état : en cours + modifications
+
 ## Todo
 - base de données
 - découpage
